@@ -76,10 +76,10 @@ end }
 
 function AttachWeapon(attachModel,modelHash,boneNumber,x,y,z,xR,yR,zR, isMelee)
 	local bone = GetPedBoneIndex(GetPlayerPed(-1), boneNumber)
-	RequestModel(attachModel)
-	while not HasModelLoaded(attachModel) do
-		Wait(100)
-	end
+	RequestModel(GetHashKey(attachModel))
+	--while not HasModelLoaded(attachModel) do
+	--	Wait(100)
+	--end
 
   attached_weapons[attachModel] = {
     hash = modelHash,
