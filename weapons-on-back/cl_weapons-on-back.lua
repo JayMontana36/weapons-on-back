@@ -45,8 +45,9 @@ local SETTINGS = {
 
 local attached_weapons = {}
 
-Citizen.CreateThread(function()
-  while true do
+local WeaponsOnBack = { loop = function()
+--Citizen.CreateThread(function()
+--  while true do
       local me = GetPlayerPed(-1)
       ---------------------------------------
       -- attach if player has large weapon --
@@ -68,9 +69,10 @@ Citizen.CreateThread(function()
             attached_weapons[name] = nil
           end
       end
-  Wait(0)
-  end
-end)
+--  Wait(0)
+--  end
+--end)
+end }
 
 function AttachWeapon(attachModel,modelHash,boneNumber,x,y,z,xR,yR,zR, isMelee)
 	local bone = GetPedBoneIndex(GetPlayerPed(-1), boneNumber)
@@ -100,3 +102,5 @@ function isMeleeWeapon(wep_name)
         return false
     end
 end
+
+return WeaponsOnBack
